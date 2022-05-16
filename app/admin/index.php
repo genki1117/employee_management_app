@@ -5,7 +5,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use Libs\adminDAO;
 
-// if (is_login()) {
+if (is_login()) {
     try {
         $pdo = new_PDO();
         $admin_dao = new adminDAO($pdo);
@@ -15,9 +15,9 @@ use Libs\adminDAO;
         error_log("Validate: PDOException" . $e->getMessage());
         header("Location: error.php");
     }
-// }else {
-//     header("Location: login.php");
-// }
+}else {
+    header("Location: login.php");
+}
 
 
 
