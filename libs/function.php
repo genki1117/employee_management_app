@@ -27,7 +27,7 @@ function new_PDO()
     //heroku
     $dsn = "mysql:dbname=heroku_4d1209dbba343a9;host=us-cdbr-east-05.cleardb.net;charset=utf8mb4";
     $username = "b76c9a73f58cc4";
-    $password = "c5ab235ft";
+    $password = "c5ab235f";
 
     $options = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
