@@ -32,20 +32,18 @@ echo $email;
 
 $password = (string)filter_input(INPUT_POST, 'password');
 echo $password;
-// if ($password === '') {
-//     error_log("Validate: required is password.");
-//     $_SESSION[SESSION_MESSAGE] = "Validate: required is password.";
-//     // header("Location: login.php");
-//     echo 'v1';
-//     exit();
-// }
-// if (mb_strlen($password) > 20) {
-//     error_log("Validate: password is 20row.");
-//     $_SESSION[SESSION_MESSAGE] = "Validate: password is 20row.";
-//     // header("Location: login.php");
-//     echo 'v2';
-//     exit();
-// }
+if ($password === '') {
+    error_log("Validate: required is password.");
+    $_SESSION[SESSION_MESSAGE] = "Validate: required is password.";
+    header("Location: login.php");
+    exit();
+}
+if (mb_strlen($password) > 20) {
+    error_log("Validate: password is 20row.");
+    $_SESSION[SESSION_MESSAGE] = "Validate: password is 20row.";
+    header("Location: login.php");
+    exit();
+}
 echo 'password555';
 
 try {
