@@ -46,10 +46,17 @@
                     </div>
                     <div class="form-group">
                         <label for="image_file" class="mt-1">Image</label>
-                        <p>
-                            <img src="<?= h($file_path . $file_name) ?>" width="200px" alt="">
-                        </p>
-                        <input type="hidden" class="form-control" id="image_file" name="image_file" value="<?= h($file_name); ?>">
+                        <?php if (!is_uploaded_file($_FILES['image_file']['name'])) { ?>
+                            <p>
+                                <img src="../../img/default_french-bulldog-g024d2a019_1920.png" width="200px" alt="">
+                            </p>
+                            <input type="hidden" class="form-control" id="image_file" name="image_file" value="default_french-bulldog-g024d2a019_1920.png">
+                        <?php } else { ?>
+                            <p>
+                                <img src="<?= h($file_path . $file_name) ?>" width="200px" alt="">
+                            </p>
+                            <input type="hidden" class="form-control" id="image_file" name="image_file" value="<?= h($file_name); ?>">
+                        <?php } ?>
                     </div>
                     <div class="form-group">
                         <label for="password" class="mt-1">Password</label>

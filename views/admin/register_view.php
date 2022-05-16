@@ -59,7 +59,10 @@
                 <form action="csv_inport.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="inport_csv" class="form-control">
                     <input type="hidden" name="csrf_token" value="<?= h($csrf_token); ?>">
-                    <input type="submit" class="btn btn-secondary mt-3 mb-5" value="csv読み込み">
+                    <input type="submit" class="btn btn-secondary mt-3 mb-2" value="csv読み込み">
+                    <div>
+                        <a href="csv_default_download.php">フォーマットをダウンロード</a>
+                    </div>
                 </form>
             </div>
         </div>

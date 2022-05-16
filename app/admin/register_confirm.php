@@ -26,7 +26,7 @@ if (is_login()) {
     $file_name = '_' . $_FILES['image_file']['name'];
 
     if (!count(array_filter($errors)) == 0) {
-        set_message("Validate: register Failure");
+        // set_message("Validate: register Failure");
         deleteFile($file_path, $file_name);
         header("Location: index.php");
         exit();

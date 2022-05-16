@@ -29,7 +29,7 @@ admin管理画面
     ※ログイン処理　メモ　アウトプット
 
     /admin削除
-    index_view no_image設定
+    /index_view no_image設定
 
 
     userテーブル作成
