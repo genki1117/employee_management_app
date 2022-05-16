@@ -19,9 +19,15 @@ function h($str)
 //DB接続
 function new_PDO()
 {
-    $dsn = "mysql:dbname=employee_management;host=localhost;charset=utf8mb4";
-    $username = "root";
-    $password = "root";
+    //ローカル
+    // $dsn = "mysql:dbname=employee_management;host=localhost;charset=utf8mb4";
+    // $username = "root";
+    // $password = "root";
+
+    //heroku
+    $dsn = "mysql:dbname=heroku_4d1209dbba343a9;host=us-cdbr-east-05.cleardb.net;charset=utf8mb4";
+    $username = "b76c9a73f58cc4";
+    $password = "c5ab235ft";
 
     $options = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
