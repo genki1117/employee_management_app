@@ -31,6 +31,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
 echo $email;
 
 $password = (string)filter_input(INPUT_POST, 'password');
+echo $password;
 if ($password === '') {
     error_log("Validate: required is password.");
     $_SESSION[SESSION_MESSAGE] = "Validate: required is password.";
