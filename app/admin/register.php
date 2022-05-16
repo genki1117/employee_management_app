@@ -4,7 +4,9 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use Libs\departmentDao;
 
+echo 'test1';
 if (is_login()) {
+    echo 'test2';
     $csrf_token = generate_csrf_token();
 
     //プルダウン取得
@@ -12,7 +14,7 @@ if (is_login()) {
     $department_dao = new departmentDao($pdo);
     $departments = $department_dao->selectAll();
 
-    echo 'test';
+    echo 'test3';
 
     require __DIR__ . '/../../views/admin/register_view.php';
 
