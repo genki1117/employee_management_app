@@ -35,13 +35,15 @@ echo $password;
 if ($password === '') {
     error_log("Validate: required is password.");
     $_SESSION[SESSION_MESSAGE] = "Validate: required is password.";
-    header("Location: login.php");
+    // header("Location: login.php");
+    echo 'v1';
     exit();
 }
 if (mb_strlen($password) > 20) {
     error_log("Validate: password is 20row.");
     $_SESSION[SESSION_MESSAGE] = "Validate: password is 20row.";
-    header("Location: login.php");
+    // header("Location: login.php");
+    echo 'v2';
     exit();
 }
 echo $password;
