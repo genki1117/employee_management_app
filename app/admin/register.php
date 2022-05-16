@@ -2,7 +2,7 @@
 require __DIR__ . '/../../libs/function.php';
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Libs\departmentDao;
+use Libs\departmentDAO;
 
 
 if (is_login()) {
@@ -10,7 +10,7 @@ if (is_login()) {
 
     //プルダウン取得
     $pdo = new_PDO();
-    $department_dao = new departmentDao($pdo);
+    $department_dao = new departmentDAO($pdo);
     $departments = $department_dao->selectAll();
 
 
