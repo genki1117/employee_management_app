@@ -2,7 +2,7 @@
 require __DIR__ . '/../../libs/function.php';
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Libs\departmentDao;
+use Libs\departmentDAO;
 use Libs\Validation;
 
 if (is_login()) {
@@ -35,7 +35,7 @@ if (is_login()) {
     $csrf_token_regenerate = generate_csrf_token();
 
     $pdo = new_PDO();
-    $department_dao = new departmentDao($pdo);
+    $department_dao = new departmentDAO($pdo);
     $department = $department_dao->selectNameById($department_id);
 
     require __DIR__ . '/../../views/admin/register_confirm_view.php';
