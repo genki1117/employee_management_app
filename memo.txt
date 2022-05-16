@@ -1,0 +1,48 @@
+
+admin管理画面
+    /部署テーブル作成
+    /部署テーブルリレーション
+    /共通メッセージ
+    /fileupload 動作チェック
+    値保持
+
+    /フォルダ分けadmin user member
+    /nav user一覧
+    /nav member一覧
+    /datai画面作成
+    /admin登録処理
+    /admin名前検索
+    /update機能
+    /ログアウト
+    /メール機能
+    /ナビゲーションバー
+    /csv出力
+    /csvインポート
+
+    コード整理
+    csvフォーマットダウンロード
+
+    /※fileupload メモ　アウトプット
+    /※csv出力 メモ　アウトプット
+    /※csvインポート　メモ　アウトプット
+    ※メール機能　メモ　アウトプット
+    ※ログイン処理　メモ　アウトプット
+
+    /admin削除
+    index_view no_image設定
+
+
+    userテーブル作成
+    user登録処理
+    user一覧
+    user名前検索
+    user削除
+
+    memberテーブル作成
+    member登録処理
+    member一覧
+    member削除
+
+    エラー出力整理
+
+
