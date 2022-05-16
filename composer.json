@@ -3,5 +3,9 @@
         "psr-4": {
             "Libs\\" : "libs"
         }
+    },
+    "require": {
+        "php": "~7.0",
+        "ext-mbstring": "*"
     }
 }
