@@ -13,6 +13,7 @@ if (verify_csrf_token($csrf_token) === false) {
     header("Location: login.php");
     exit();
 }
+echo $csrf_token;
 
 $email = (string)filter_input(INPUT_POST, 'email');
 if ($email === '') {
@@ -27,6 +28,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     header("Location: login.php");
     exit();
 }
+echo $email;
 
 $password = (string)filter_input(INPUT_POST, 'password');
 if ($password === '') {
@@ -41,6 +43,7 @@ if (mb_strlen($password) > 20) {
     header("Location: login.php");
     exit();
 }
+echo $password;
 
 try {
     $pdo = new_PDO();
