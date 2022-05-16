@@ -46,7 +46,7 @@ if (mb_strlen($password) > 20) {
     echo 'v2';
     exit();
 }
-echo $password;
+echo 'password555';
 
 try {
     $pdo = new_PDO();
