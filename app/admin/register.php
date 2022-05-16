@@ -12,8 +12,10 @@ if (is_login()) {
     $department_dao = new departmentDao($pdo);
     $departments = $department_dao->selectAll();
 
+    echo 'test';
+
     require __DIR__ . '/../../views/admin/register_view.php';
-    
+
 } else {
     header("Location: login.php");
 }
