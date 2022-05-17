@@ -15,9 +15,15 @@
         <div class="container">
             <div class="row mt-4">
                 <div class="col-md-5">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="../../img/<?= h($admin['file_name']); ?>" style="width: 300px;" class="mx-auto" alt="">
-                    </div>
+                    <?php if (isset($admin['file_name'])) { ?>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="../../img/<?= h($admin['file_name']); ?>" style="width: 300px;" class="mx-auto" alt="">
+                        </div>
+                    <?php } else { ?>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="../../img/default_french-bulldog-g024d2a019_1920.png" style="width: 300px;" class="mx-auto" alt="">
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="col-md-7">
                     <div class="">
