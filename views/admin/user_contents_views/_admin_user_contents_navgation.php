@@ -8,16 +8,16 @@
         <div class="collapse navbar-collapse" id="Navber">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">ホーム</a>
+                    <a class="nav-link active" aria-current="page" href="../../../app/admin/index.php">ホーム</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.php">管理者登録</a>
+                    <a class="nav-link" href="../../../app/admin/register.php">管理者登録</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../app/admin/user_contents/index.php">ユーザー一覧</a>
+                    <a class="nav-link" href="index.php">ユーザー一覧</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../app/admin/user_contents/register.php">ユーザー登録</a>
+                    <a class="nav-link" href="register.php">ユーザー登録</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">社員一覧</a>
@@ -26,7 +26,7 @@
                     <a class="nav-link" href="#">社員登録</a>
                 </li> -->
             </ul>
-            <form action="../../app/admin/search_post.php" method="post" class="d-flex">
+            <form action="../../../app/admin/user_contents/user_search_post.php" method="post" class="d-flex">
                 <input type="text" name="word" class="form-control me-2" placeholder="名前検索" aria-label="名前検索">
                 <button type="submit" class="btn btn-outline-success flex-shrink-0">検索</button>
             </form>

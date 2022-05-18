@@ -1,11 +1,12 @@
 <?php
 
 define("SESSION_ACCOUNT", "SESSION_ACCOUNT");
+define("SESSION_USER_ACCOUNT", "SESSION_USER_ACCOUNT");
 define("SESSION_MESSAGE", "SESSION_MESSAGE");
 define("SESSION_CSRF_TOKEN", "SESSION_CSRF_TOKEN");
 
 session_start();
-// var_dump($_SESSION);
+var_dump($_SESSION);
 // var_dump($_FILES);
 // var_dump($_POST);
 
@@ -160,3 +161,9 @@ function deleteFile($filepath, $filename = null)
     }
 }
 
+
+
+function is_user_login()
+{
+    return isset($_SESSION[SESSION_USER_ACCOUNT]);
+}

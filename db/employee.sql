@@ -26,23 +26,20 @@ insert into departments (id, name) values (3, "経理部");
 
 
 
+drop table if exists users;
+create table users(
+    id integer primary key AUTO_INCREMENT,
+    name varchar(255) not null,
+    email varchar(255) unique not null,
+    hashed_password text not null,
+    age integer,
+    tell_number varchar(255),
+    department_id integer(20),
+    created_at datetime,
+    file_name text
+);
+
+insert into users (name, email, hashed_password, age, tell_number, department_id, created_at)
+            values ('user_user01', 'user_test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055556666', 2, NOW())
 
 
-
-select
-    ad.id, ad.name, ad.email, ad.age, ad.tell_number, de.name department_name
-from
-    admins ad left join departments de on ad.department_id = de.id
-order by ad.id;
-
-
-select
-    ad.id, ad.name, ad.email, ad.age, ad.tell_number, de.name department_name
-from
-    admins ad left join departments de on ad.department_id = de.id
-where
-    ad.id = :id;
-
-
-検索
-select * from admins where name LIKE '%test%' OR tell_number LIKE '%test%';
