@@ -26,4 +26,24 @@ class UserDAO
         $users = $ps->fetchAll();
         return $users;
     }
+
+    public function UserSelectById($id)
+    {
+        $sql = "select
+                    us.id,
+                    us.name,
+                    us.email,
+                    us.age,
+                    us.tell_number,
+                    de.name department_name
+                from
+                    users us left join departments de on us.department_id = de.id
+                where
+                    us.id = :id";
+        $ps = $this->pdo->prepare($sql);
+        $ps->bindValue(":id", $id);
+        $ps->execute();
+        $user = $ps->fetch();
+        return $user;
+    }
 }
