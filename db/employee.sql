@@ -12,7 +12,7 @@ create table admins(
 );
 
 insert into admins (name, email, hashed_password, age, tell_number, department_id, created_at)
-            values ('user01', 'test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055557777', 2, NOW())
+            values ('user01', 'test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055557777', 2, NOW());
 
 
 create table departments(
@@ -40,6 +40,6 @@ create table users(
 );
 
 insert into users (name, email, hashed_password, age, tell_number, department_id, created_at)
-            values ('user_user01', 'user_test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055556666', 2, NOW())
+            values ('user_user01', 'user_test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055556666', 2, NOW());
 
 

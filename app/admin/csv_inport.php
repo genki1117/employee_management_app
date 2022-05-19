@@ -39,7 +39,6 @@ if (!move_uploaded_file($_FILES['inport_csv']['tmp_name'], $file_path . $file_na
 }
 
 $uploaded_csv_file = $file_path . $file_name;
-echo $uploaded_csv_file;
 
 $file = new SplFileObject($uploaded_csv_file);
 $file->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);

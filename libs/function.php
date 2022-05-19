@@ -6,7 +6,7 @@ define("SESSION_MESSAGE", "SESSION_MESSAGE");
 define("SESSION_CSRF_TOKEN", "SESSION_CSRF_TOKEN");
 
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 // var_dump($_FILES);
 // var_dump($_POST);
 
@@ -21,14 +21,18 @@ function h($str)
 function new_PDO()
 {
     //ローカル
-    $dsn = "mysql:dbname=employee_management;host=localhost;charset=utf8mb4";
-    $username = "root";
-    $password = "root";
+    // $dsn = "mysql:dbname=employee_management;host=localhost;charset=utf8mb4";
+    // $username = "root";
+    // $password = "root";
 
     //heroku
     // $dsn = "mysql:dbname=heroku_4d1209dbba343a9;host=us-cdbr-east-05.cleardb.net;charset=utf8mb4";
     // $username = "b76c9a73f58cc4";
     // $password = "c5ab235f";
+
+    $dsn = "mysql:dbname=genki1117_employee;host=mysql57.genki1117.sakura.ne.jp;charset=utf8mb4";
+    $username = "genki1117";
+    $password = "employee123";
 
     $options = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
