@@ -30,7 +30,7 @@ function new_PDO()
     // $username = "b76c9a73f58cc4";
     // $password = "c5ab235f";
 
-    $dsn = "mysql:dbname=genki1117_employee;host=mysql57.genki1117.sakura.ne.jp;charset=utf8mb4";
+    $dsn = "mysql:dbname=genki1117_employee;host=mysql630.db.sakura.ne.jp;charset=utf8mb4";
     $username = "genki1117";
     $password = "employee123";
 

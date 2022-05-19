@@ -50,7 +50,6 @@ try {
     $pdo = new_PDO();
     $admin_dao = new adminDAO($pdo);
     $admin = $admin_dao->selectByEmail($email);
-    var_dump($admin);
     if ($admin === false) {
         error_log("Validate: admin is Invalid.");
         set_message("admin is Invalid.");
@@ -68,6 +67,7 @@ try {
 
     header("Location: index.php");
 } catch (PDOException $e) {
+    set_message(e->getMessage());
     error_log($e->getMessage());
     header("Location: error.php");
     exit();
