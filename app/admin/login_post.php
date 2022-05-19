@@ -69,6 +69,6 @@ try {
 } catch (PDOException $e) {
     set_message(e->getMessage());
     error_log($e->getMessage());
-    header("Location: error.php");
+    header("Location: index.php");
     exit();
 }
