@@ -1,34 +1,66 @@
+<pre>
 <?php
 require __DIR__ . '/../../libs/function.php';
 require __DIR__ . '/../../vendor/autoload.php';
 
 use Libs\departmentDAO;
-use Libs\Validation;
+use Libs\TestValidation;
 
 if (is_login()) {
-    $name = (string)filter_input(INPUT_POST, "name");
-    $email = (string)filter_input(INPUT_POST, "email");
-    $age = (string)filter_input(INPUT_POST, "age");
-    $tell_number = (string)filter_input(INPUT_POST, "tell_number");
-    $department_id = (string)filter_input(INPUT_POST, "department_id");
-    $password = (string)filter_input(INPUT_POST, "password");
-
     $errors = [];
-    $validation = new Validation();
-    $errors['name'] = $validation->nameValidate($name);
-    $errors['email'] = $validation->emailValidate($email);
-    $errors['age'] = $validation->ageValidate($age);
-    $errors['tell_number'] = $validation->tellNumberValidate($tell_number);
+    $validation = new TestValidation();
+
+    $errors['csrf_token'] = $validation->csrfTokenValidate($_POST['csrf_token']);
+    if (isset($errors['csrf_token'])) {
+        set_message($errors['csrf_token']);
+        header("Location: register.php");
+        exit();
+    }
+
+    $errors['name'] = $validation->nameValidate($_POST['name']);
+    if (isset($errors['name'])) {
+        set_message($errors['name']);
+        header("Location: register.php");
+        exit();
+    }
+
+    $errors['email'] = $validation->emailValidate($_POST['email']);
+    if (isset($errors['email'])) {
+        set_message($errors['email']);
+        header("Location: register.php");
+        exit();
+    }
+
+    $errors['age'] = $validation->ageValidate($_POST['age']);
+    if (isset($errors['age'])) {
+        set_message($errors['age']);
+        header("Location: register.php");
+        exit();
+    }
+
+    $errors['tell_number'] = $validation->tellNumberValidate($_POST['tell_number']);
+    if (isset($errors['tell_number'])) {
+        set_message($errors['tell_number']);
+        header("Location: register.php");
+        exit();
+    }
+
     $errors['image_file'] = $validation->fileUpload($_FILES);
-    $errors['password'] = $validation->passwordValidate($password);
+
+    $errors['password'] = $validation->passwordValidate($_POST['password']);
+    if (isset($errors['password'])) {
+        set_message($errors['password']);
+        header("Location: register.php");
+        exit();
+    }
+
 
     $file_path = '../../img/';
     $file_name = '_' . $_FILES['image_file']['name'];
 
     if (!count(array_filter($errors)) == 0) {
-        // set_message("Validate: register Failure");
         deleteFile($file_path, $file_name);
-        header("Location: index.php");
+        header("Location: register.php");
         exit();
     }
 

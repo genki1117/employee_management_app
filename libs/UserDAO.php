@@ -35,6 +35,7 @@ class UserDAO
                     us.email,
                     us.age,
                     us.tell_number,
+                    us.department_id,
                     de.name department_name
                 from
                     users us left join departments de on us.department_id = de.id

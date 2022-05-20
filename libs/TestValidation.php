@@ -2,22 +2,31 @@
 
 namespace Libs;
 
-class Validation extends fileOperation {
+class TestValidation extends fileOperation {
+
+    public function csrfTokenValidate($csrf_token)
+    {
+        if ($csrf_token === '') {
+            $error = 'トークンは必須です。';
+            set_message($error);
+            return $error;
+        }
+    }
 
     public function nameValidate($name)
     {
-        $name = (string)filter_input(INPUT_POST, "name");
         if ($name === '') {
             $error = 'name brank';
+            set_message($error);
             return $error;
         }
     }
 
     public function emailValidate($email)
     {
-        $email = (string)filter_input(INPUT_POST, "email");
         if ($email === '') {
             $error = 'email brank';
+            set_message($error);
             return $error;
         }
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
@@ -30,10 +39,12 @@ class Validation extends fileOperation {
     {
         if ($age === '') {
             $error = 'age brank';
+            set_message($error);
             return $error;
         }
         if (filter_var($age, FILTER_VALIDATE_INT) === false) {
             $error = 'age invalid';
+            set_message($error);
             return $error;
         }
     }
@@ -43,10 +54,12 @@ class Validation extends fileOperation {
         $pattern = '/^0[789]0\d{8}$/u';
         if ($tell_number === '') {
             $error = 'tell_number brank';
+            set_message($error);
             return $error;
         }
         if (preg_match($pattern, $tell_number) === 0) {
             $error = 'tell_number invalid';
+            set_message($error);
             return $error;
         }
     }
@@ -55,10 +68,12 @@ class Validation extends fileOperation {
     {
         if ($department_id === '') {
             $error = 'department_id brank';
+            set_message($error);
             return $error;
         }
         if (filter_var($department_id, FILTER_VALIDATE_INT) === false) {
             $error = 'department_id invalid';
+            set_message($error);
             return $error;
         }
     }

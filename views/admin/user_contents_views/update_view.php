@@ -2,47 +2,44 @@
 <html lang="ja">
 
 <head>
-    <?php require __DIR__ . '/../../views/admin/_head.php'; ?>
-    <title>管理者登録</title>
+    <?php require __DIR__ . '/../_head.php'; ?>
+    <title>社員情報更新</title>
 </head>
 
 <body>
     <header>
         <!-- ナビゲーションバー -->
-        <?php require __DIR__ . '/_admin_navgation.php'; ?>
+        <?php require __DIR__ . '/_admin_user_contents_navgation.php'; ?>
     </header>
     <main class="container py-4">
-        <?php require __DIR__ . '/../_message_view.php'; ?>
+        <?php require __DIR__ . '/../../_message_view.php'; ?>
         <div class="row mt-3">
             <div class="col-6">
-                <h3>管理者登録</h3>
+                <h3>社員情報更新</h3>
                 <hr>
-                <form action="register_confirm.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="csrf_token" value="<?= h($csrf_token); ?>">
+                <form action="update_confirm.php" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="csrf_token" value="<?= h($csrf_token); ?>">
                     <div class="form-group">
-                        <?php if (isset($errors['name'])) {
-                            echo $errors['name'];
-                        } ?>
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="">
+                        <input type="text" class="form-control" id="name" name="name" value="<?= h($user['name']); ?>">
                     </div>
                     <div class="form-group">
                         <label for="email" class="mt-1">Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control" id="email" name="email" value="<?= h($user['email']); ?>">
                     </div>
                     <div class="form-group">
                         <label for="age" class="mt-1">Age</label>
-                        <input type="number" class="form-control" id="age" name="age">
+                        <input type="number" class="form-control" id="age" name="age" value="<?= h($user['age']); ?>">
                     </div>
                     <div class="form-group">
                         <label for="tell_number" class="mt-1">Tell_number</label>
-                        <input type="text" class="form-control" id="tell_number" name="tell_number">
+                        <input type="text" class="form-control" id="tell_number" name="tell_number" value="<?= h($user['tell_number']); ?>">
                     </div>
                     <div class="form-group">
                         <label for="department_id" class="mt-1">Department</label>
                         <select name="department_id" class="form-control" id="department_id">
                             <?php foreach ($departments as $department) { ?>
-                                <option value="<?= $department['id'] ?>"><?= $department['name'] ?></option>
+                                <option value="<?= $department['id'] ?>" <?= $department['id'] === $user['department_id'] ? 'selected' : '' ?>><?= $department['name'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
