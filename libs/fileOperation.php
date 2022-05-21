@@ -4,7 +4,7 @@ namespace Libs;
 
 class fileOperation
 {
-    public function fileUpload($file)
+    public function fileUpload($file, $file_path)
     {
         if (is_uploaded_file($file['image_file']['tmp_name'])) {
             // $error = 'file brank';
@@ -18,7 +18,6 @@ class fileOperation
                 return $error;
             }
             //ファイル移動
-            $file_path = "../../img/";
             $file_name = '_' . $file['image_file']['name'];
             move_uploaded_file($file['image_file']['tmp_name'], $file_path . $file_name);
         }

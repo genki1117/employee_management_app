@@ -11,12 +11,17 @@ class TestValidation extends fileOperation {
             set_message($error);
             return $error;
         }
+        if (verify_csrf_token($csrf_token) === false) {
+            $error = 'トークンが不正です。';
+            set_message($error);
+            return $error;
+        }
     }
 
     public function nameValidate($name)
     {
         if ($name === '') {
-            $error = 'name brank';
+            $error = '名前が未入力です。';
             set_message($error);
             return $error;
         }
@@ -25,12 +30,12 @@ class TestValidation extends fileOperation {
     public function emailValidate($email)
     {
         if ($email === '') {
-            $error = 'email brank';
+            $error = 'メールアドレスが未入力です。';
             set_message($error);
             return $error;
         }
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $error = 'email invlid';
+            $error = 'メールアドレスが不正です。';
             return $error;
         }
     }
@@ -38,12 +43,12 @@ class TestValidation extends fileOperation {
     public function ageValidate($age)
     {
         if ($age === '') {
-            $error = 'age brank';
+            $error = '年齢が未入力です。';
             set_message($error);
             return $error;
         }
         if (filter_var($age, FILTER_VALIDATE_INT) === false) {
-            $error = 'age invalid';
+            $error = '年齢が不正です。';
             set_message($error);
             return $error;
         }
@@ -53,12 +58,12 @@ class TestValidation extends fileOperation {
     {
         $pattern = '/^0[789]0\d{8}$/u';
         if ($tell_number === '') {
-            $error = 'tell_number brank';
+            $error = '電話番号が未入力です。';
             set_message($error);
             return $error;
         }
         if (preg_match($pattern, $tell_number) === 0) {
-            $error = 'tell_number invalid';
+            $error = '電話番号が不正です。';
             set_message($error);
             return $error;
         }
@@ -67,12 +72,12 @@ class TestValidation extends fileOperation {
     public function departmentIdValidate($department_id)
     {
         if ($department_id === '') {
-            $error = 'department_id brank';
+            $error = '部署が未入力です。';
             set_message($error);
             return $error;
         }
         if (filter_var($department_id, FILTER_VALIDATE_INT) === false) {
-            $error = 'department_id invalid';
+            $error = '部署が不正です。';
             set_message($error);
             return $error;
         }
@@ -81,13 +86,15 @@ class TestValidation extends fileOperation {
     public function passwordValidate($password)
     {
         if ($password === '') {
-            $error = 'password brank';
+            $error = 'パスワードが未入力です。';
+            set_message($error);
             return $error;
         }
         //要変更
         if (mb_strlen($password) < 3) {
             //3文字未満
-            $error = 'password invalid';
+            $error = 'パスワードが不正です。';
+            set_message($error);
             return $error;
         }
     }

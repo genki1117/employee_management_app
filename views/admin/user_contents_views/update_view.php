@@ -19,6 +19,7 @@
                 <hr>
                 <form action="update_confirm.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="csrf_token" value="<?= h($csrf_token); ?>">
+                    <input type="text" name="id" value="<?= h($user['id']); ?>">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" value="<?= h($user['name']); ?>">

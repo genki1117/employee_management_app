@@ -1,4 +1,3 @@
-<pre>
 <?php
 require __DIR__ . '/../../libs/function.php';
 require __DIR__ . '/../../vendor/autoload.php';
@@ -45,7 +44,9 @@ if (is_login()) {
         exit();
     }
 
-    $errors['image_file'] = $validation->fileUpload($_FILES);
+    $file_path = '../../img/';
+    $file_name = '_' . $_FILES['image_file']['name'];
+    $errors['image_file'] = $validation->fileUpload($_FILES, $file_path);
 
     $errors['password'] = $validation->passwordValidate($_POST['password']);
     if (isset($errors['password'])) {
@@ -68,6 +69,7 @@ if (is_login()) {
 
     $pdo = new_PDO();
     $department_dao = new departmentDAO($pdo);
+    $department_id = filter_input(INPUT_POST, 'department_id');
     $department = $department_dao->selectNameById($department_id);
 
     require __DIR__ . '/../../views/admin/register_confirm_view.php';
