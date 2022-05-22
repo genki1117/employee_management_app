@@ -66,7 +66,14 @@ class adminDAO
     public function selectByAdminId($adminId)
     {
         $sql = "select
-                    ad.id, ad.name, ad.email, ad.age, ad.tell_number, ad.file_name, de.name department_name, department_id
+                    ad.id,
+                    ad.name,
+                    ad.email,
+                    ad.age,
+                    ad.tell_number,
+                    ad.file_name,
+                    de.name department_name,
+                    department_id
                 from
                     admins ad left join departments de on ad.department_id = de.id
                 where

@@ -12,7 +12,7 @@ create table admins(
 );
 
 insert into admins (name, email, hashed_password, age, tell_number, department_id, created_at)
-            values ('admin01', 'test01@test.com', '$2y$10$AhrwidiJgIq7/xJL0pA43.D1RdHsJO4.gjnbW3/6Tlo716SKqOxOy', 30, '09055557777', 2, NOW());
+            values ('admin01', 'test01@test.com', '$2y$10$7P6F71IR9WBTLocmuCmveew5Pnv9JMgOTrWkQELYYbftmwG.5Sa66', 30, '09055557777', 2, NOW());
 
 drop table if exists departments;
 create table departments(
