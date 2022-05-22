@@ -1,9 +1,9 @@
-<pre>
 <?php
 require_once __DIR__ . '/../../../libs/function.php';
 require __DIR__ . '/../../../vendor/autoload.php';
 
 use Libs\TestValidation;
+use Libs\UserDAO;
 
 var_dump($_POST);
 
@@ -12,11 +12,11 @@ $validation = new TestValidation();
 
 $id = (string)filter_input(INPUT_POST, 'id');
 
-$errors['csrf_token'] = $validation->csrfTokenValidate($_POST['csrf_token']);
-if (isset($errors['csrf_token'])) {
-    header("Location: update.php?id={$id}");
-    exit();
-}
+// $errors['csrf_token'] = $validation->csrfTokenValidate($_POST['csrf_token']);
+// if (isset($errors['csrf_token'])) {
+//     header("Location: update.php?id={$id}");
+//     exit();
+// }
 
 $errors['name'] = $validation->nameValidate($_POST['name']);
 if (isset($errors['name'])) {
@@ -51,7 +51,27 @@ if (isset($errors['password'])) {
     exit();
 }
 
-var_dump($errors);
-exit;
+$name = (string)filter_input(INPUT_POST, 'name');
+$email = (string)filter_input(INPUT_POST, 'email');
+$age = (string)filter_input(INPUT_POST, 'age');
+$tell_number = (string)filter_input(INPUT_POST, 'tell_number');
+$department_id = (string)filter_input(INPUT_POST, 'department_id');
+$file_name = '_' . $_FILES['image_file']['name'];
+$password = (string)filter_input(INPUT_POST, 'password');
+
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+
+try {
+    $pdo = new_PDO();
+    $user_dao = new UserDAO($pdo);
+    $user_dao->updateUser($id, $name, $email, $hashed_password, $age, $tell_number, $department_id, $file_name);
+
+    require __DIR__ . '/../../../app/admin/user_contents/index.php';
+
+} catch (PDOException $e) {
+    set_message("PDOException: " . $e->getMessage());
+    exit();
+}
 
 

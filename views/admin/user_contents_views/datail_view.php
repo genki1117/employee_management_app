@@ -3,7 +3,7 @@
 
 <head>
     <?php require __DIR__ . '/../_head.php'; ?>
-    <title><?= $suer['name']; ?>詳細画面</title>
+    <title><?= $user['name']; ?>詳細画面</title>
 </head>
 
 <body>
@@ -17,11 +17,11 @@
                 <div class="col-md-5">
                     <?php if (isset($user['file_name'])) { ?>
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src="../../img/<?= h($user['file_name']); ?>" style="width: 300px;" class="mx-auto" alt="">ture
+                            <img src="../../../img/<?= h($user['file_name']); ?>" style="width: 300px;" class="mx-auto" alt="">
                         </div>
                     <?php } else { ?>
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src="../../../img/default_french-bulldog-g024d2a019_1920.png" style="width: 300px;" class="mx-auto" alt="">false
+                            <img src="../../../img/default_french-bulldog-g024d2a019_1920.png" style="width: 300px;" class="mx-auto" alt="">
                         </div>
                     <?php } ?>
                 </div>
