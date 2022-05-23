@@ -35,6 +35,9 @@ function new_PDO()
     $username = "genki1117";
     $password = "employee123";
 
+    //phpadminpass
+    //employee123
+
     $options = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

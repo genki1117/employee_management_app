@@ -6,7 +6,7 @@ use Libs\departmentDao;
 use Libs\UserDAO;
 
 if (is_login()) {
-    $id = (string)filter_input(INPUT_GET, 'id');
+    $id = (string)filter_input(INPUT_GET, 'user_id');
     if ($id === '') {
         set_message("idは必須です。");
         header("Location: index.php");

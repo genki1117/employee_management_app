@@ -64,7 +64,7 @@
                     <input type="submit" class="btn btn-danger ps-4 pe-4 ms-5" id="button1" value="削除">
                 </form>
                 <form action="update.php" method="GET">
-                    <input type="hidden" name="id" value="<?= h($admin['id']); ?>">
+                    <input type="hidden" name="admin_id" value="<?= h($admin['id']); ?>">
                     <button class="btn btn-primary ps-4 pe-4 ms-5 me-5">更新</button>
                 </form>
 

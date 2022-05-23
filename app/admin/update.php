@@ -9,7 +9,7 @@ use Libs\departmentDAO;
 $csrf_token = generate_csrf_token();
 
 if (is_login()) {
-    $id = (string)filter_input(INPUT_GET, "id");
+    $id = (string)filter_input(INPUT_GET, "admin_id");
     if ($id === '') {
         set_message("Validate: required is id.");
         header("Location: error.php");

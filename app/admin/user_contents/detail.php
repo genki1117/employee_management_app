@@ -5,13 +5,13 @@ require __DIR__. '/../../../vendor/autoload.php';
 use Libs\UserDAO;
 
 if (is_login()) {
-    $id = (string)filter_input(INPUT_GET, 'user_id');
-    if ($id === '') {
+    $user_id = (string)filter_input(INPUT_GET, 'user_id');
+    if ($user_id === '') {
         set_message("IDは必須です。");
         header("Location: index.php");
         exit();
     }
-    if (filter_var($id, FILTER_VALIDATE_INT) === false) {
+    if (filter_var($user_id, FILTER_VALIDATE_INT) === false) {
         set_message("IDが不正です。");
         header("Location: index.php");
         exit();
@@ -21,7 +21,7 @@ if (is_login()) {
 
         $pdo = new_PDO();
         $user_dao = new UserDAO($pdo);
-        $user = $user_dao->UserSelectById($id);
+        $user = $user_dao->UserSelectById($user_id);
 
         require __DIR__ . '/../../../views/admin/user_contents_views/datail_view.php';
 
