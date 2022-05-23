@@ -57,8 +57,8 @@ if (is_login()) {
     $age = (string)filter_input(INPUT_POST, 'age');
     $tell_number = (string)filter_input(INPUT_POST, 'tell_number');
     $department_id = (string)filter_input(INPUT_POST, 'department_id');
-    $file_name = '_' . $_FILES['image_file']['name'];
     $password = (string)filter_input(INPUT_POST, 'password');
+    $file_name = '_' . $_FILES['image_file']['name'];
 
     $csrf_token = generate_csrf_token();
 
@@ -66,6 +66,7 @@ if (is_login()) {
         $pdo = new_PDO();
         $department_dao = new departmentDao($pdo);
         $departmentNameId = $department_dao->selectNameById($department_id);
+
 
         require __DIR__ . '/../../../views/admin/user_contents_views/update_confrim_view.php';
     } catch (PDOException $e) {

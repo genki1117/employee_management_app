@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="image_file" class="mt-1">Image_file</label>
                         <input type="file" class="form-control" id="image_file" name="image_file">
-                        <input type="text" class="form-control" id="past_image" name="image_file" value="<?= h($admin['file_name']); ?>">
+
                     </div>
                     <div class=" form-group">
                         <label for="password" class="mt-1">Password</label>
