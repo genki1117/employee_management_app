@@ -5,6 +5,8 @@ require __DIR__ . '/../../../vendor/autoload.php';
 use Libs\departmentDao;
 use Libs\UserDAO;
 
+ini_set('display_errors', "On");
+
 if (is_login()) {
     $id = (string)filter_input(INPUT_GET, 'user_id');
     if ($id === '') {
