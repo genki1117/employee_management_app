@@ -25,7 +25,7 @@ if (is_login()) {
         $user_dao = new UserDAO($pdo);
         $user = $user_dao->UserSelectById($id);
 
-        $department_dao = new departmentDao($pdo);
+        $department_dao = new departmentDAO($pdo);
         $departments = $department_dao->selectAll();
 
         $csrf_token = generate_csrf_token();
