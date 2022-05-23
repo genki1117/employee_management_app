@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../../libs/function.php';
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use Libs\departmentDao;
+use Libs\departmentDAO;
 use Libs\UserDAO;
 
 ini_set('display_errors', "On");
