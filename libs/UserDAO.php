@@ -75,4 +75,20 @@ class UserDAO
         $ps->bindValue(':id', $id);
         $ps->execute();
     }
+
+    public function insertUser($name, $email, $hashed_password, $age, $tell_number, $department_id, $created_at, $file_name)
+    {
+        $sql = "insert into users (name, email, hashed_password, age, tell_number, department_id, created_at, file_name)
+                            values (:name, :email, :hashed_password, :age, :tell_number, :department_id, :created_at, :file_name)";
+        $ps = $this->pdo->prepare($sql);
+        $ps->bindValue(":name", $name);
+        $ps->bindValue(":email", $email);
+        $ps->bindValue(":hashed_password", $hashed_password);
+        $ps->bindValue(":age", $age);
+        $ps->bindValue(":tell_number", $tell_number);
+        $ps->bindValue(":department_id", $department_id);
+        $ps->bindValue(":created_at", $created_at);
+        $ps->bindValue(":file_name", $file_name);
+        $ps->execute();
+    }
 }

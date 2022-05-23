@@ -26,4 +26,6 @@ class departmentDao
         $department = $st->fetch();
         return $department;
     }
+
+
 }

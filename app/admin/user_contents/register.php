@@ -13,6 +13,8 @@ if (is_login()) {
         $department_dao = new departmentDAO($pdo);
         $departments = $department_dao->selectAll();
 
+        $csrf_token = generate_csrf_token();
+
         require __DIR__ . '/../../../views/admin/user_contents_views/register_view.php';
     } catch (PDOException $e) {
         set_message("PDOException: " . $e->getMessage());
@@ -20,3 +22,5 @@ if (is_login()) {
         exit();
     }
 }
+
+
