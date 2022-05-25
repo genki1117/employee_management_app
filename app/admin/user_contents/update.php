@@ -5,8 +5,6 @@ require __DIR__ . '/../../../vendor/autoload.php';
 use Libs\departmentDAO;
 use Libs\UserDAO;
 
-ini_set('display_errors', "On");
-
 if (is_login()) {
     $id = (string)filter_input(INPUT_GET, 'user_id');
     if ($id === '') {
@@ -35,4 +33,6 @@ if (is_login()) {
         set_message($e->getMessage());
         header("Location: index.php");
     }
+} else {
+    header("Location: ../login.php");
 }

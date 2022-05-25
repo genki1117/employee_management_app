@@ -73,6 +73,8 @@ if (is_login()) {
         set_message("PDOexception: " . $e->getMessage());
         header("Location: index.php");
     }
+} else {
+    header("Location: login.php");
 }
 
 

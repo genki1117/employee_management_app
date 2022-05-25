@@ -16,5 +16,7 @@ if (is_login()) {
         header("Location: error.php");
         exit();
     }
+} else {
+    header("Location: login.php");
 }
 

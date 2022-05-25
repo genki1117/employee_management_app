@@ -78,4 +78,6 @@ if (is_login()) {
         header("Location: register.php");
         exit();
     }
+} else {
+    header("Location: login.php");
 }
